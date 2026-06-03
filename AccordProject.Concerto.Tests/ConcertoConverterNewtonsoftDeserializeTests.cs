@@ -61,7 +61,7 @@ public class ConcertoConverterNewtonsoftDeserializeTests
         }";
 
         Manager employee = (Manager)JsonConvert.DeserializeObject<Employee>(jsonString);
-        
+
 
         Assert.Equal("Matt", employee.FirstName);
         Assert.Equal("Roberts", employee.LastName);
@@ -72,7 +72,7 @@ public class ConcertoConverterNewtonsoftDeserializeTests
         Assert.Equal(1, employee.Budget);
 
         // Should not throw
-        Manager manager = (Manager) employee;
+        Manager manager = (Manager)employee;
     }
 
     [Fact]
@@ -83,7 +83,7 @@ public class ConcertoConverterNewtonsoftDeserializeTests
         }";
 
         var ex = Assert.Throws<JsonException>(() => JsonConvert.DeserializeObject<Employee>(jsonString));
- 
+
         Assert.Equal("Type definition `org.accordproject.concerto.test@1.2.3.Foo` not found.", ex.Message);
     }
 
@@ -110,7 +110,7 @@ public class ConcertoConverterNewtonsoftDeserializeTests
         }";
 
         var ex = Assert.Throws<JsonException>(() => JsonConvert.DeserializeObject<Employee>(jsonString));
- 
+
         Assert.Equal("JSON Object is missing `$class` property.", ex.Message);
     }
 
@@ -163,7 +163,7 @@ public class ConcertoConverterNewtonsoftDeserializeTests
     //     }";
 
     //      var ex = Assert.Throws<JsonException>(() => JsonConvert.DeserializeObject<Employee>(jsonString));
- 
+
     //     Assert.Equal("JSON Object is missing `$class` property.", ex.Message);
 
     // }
